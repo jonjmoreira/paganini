@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('owner_id')
-                ->references('user_id')
+                ->references('id')
                 ->on('users');
         });
     }

@@ -17,7 +17,11 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'project_name' => $this->faker->name(),
+            'current_state' => $this->faker->randomDigit(),
+            'owner_id' => \App\Models\User::inRandomOrder()->first(),
+            'content' => $this->faker->realText(),
+            'priority' => $this->faker->randomDigit(),
         ];
     }
 }

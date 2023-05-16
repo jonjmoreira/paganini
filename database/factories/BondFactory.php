@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BondFactory extends Factory
 {
+
+    
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,8 @@ class BondFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'follower_user_id' => \App\Models\User::inRandomOrder()->first(),
+            'following_user_id' => \App\Models\User::inRandomOrder()->first(),
         ];
     }
 }

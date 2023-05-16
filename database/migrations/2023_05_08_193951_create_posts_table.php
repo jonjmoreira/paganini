@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('content', 300);
-            $table->integer('flag_count');
-            $table->integer('bits');
+            $table->integer('flag_count')->default(0);
+            $table->integer('bits')->default(0);
             $table->unsignedBigInteger('user_id');
+            $table->timestamp('published_at', 0)->useCurrent();
             $table->timestamps(0);
 
             $table->foreign('user_id')

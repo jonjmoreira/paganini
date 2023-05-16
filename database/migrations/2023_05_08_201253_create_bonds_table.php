@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bonds', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('follower_user_id');
             $table->unsignedBigInteger('following_user_id');
             $table->timestamps(0);
 
             $table->foreign('follower_user_id')
-                ->references('user_id')
+                ->references('id')
                 ->on('users');
             
             $table->foreign('following_user_id')
-                ->references('user_id')
+                ->references('id')
                 ->on('users');
         });
     }

@@ -17,7 +17,11 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'content' => $this->faker->realText(),
+            'bits' => $this->faker->randomDigit(),
+            'flag_count' => $this->faker->randomDigit(),
+            'published_at' => now(),
+            'user_id' => \App\Models\User::inRandomOrder()->first(),
         ];
     }
 }
